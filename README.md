@@ -155,3 +155,50 @@ function gerarRoteiro(dados = {}) {
   return linhas.join("\n");
 }
 ```
+
+## Parte C — Melhoria do prompt
+
+Para a parte bônus, foi utilizado um prompt mais detalhado, com contexto, formato de saída e regras claras. O objetivo foi gerar um roteiro mais consistente, persuasivo e adequado aos dados fornecidos, sem inventar informações.
+
+Prompt utilizado:
+
+```text
+Você é um redator especializado em vendas.
+
+Crie um roteiro de vendas curto, claro e persuasivo usando os dados abaixo:
+
+- Nome da oferta: {nomeOferta}
+- Resultado prometido: {resultado}
+- Público-alvo: {publico}
+
+Regras:
+- Escreva exatamente 4 linhas.
+- Apresente a oferta na primeira linha.
+- Identifique o público-alvo na segunda linha.
+- Destaque o principal benefício na terceira linha.
+- Termine com uma chamada para ação na quarta linha.
+- Use linguagem simples e profissional.
+- Não invente informações que não foram fornecidas.
+- Retorne somente o roteiro, sem título ou explicações.
+```
+
+Dados utilizados no exemplo:
+
+```json
+{
+  "nomeOferta": "Curso Java",
+  "resultado": "Aprender a criar APIs",
+  "publico": "Desenvolvedores iniciantes"
+}
+```
+
+Resposta gerada a partir do prompt:
+
+```text
+Conheça o Curso Java, a formação ideal para impulsionar sua carreira.
+Desenvolvido especialmente para desenvolvedores iniciantes que querem dar o próximo passo.
+Com ele, você vai aprender a criar APIs de forma prática e eficiente.
+Inscreva-se agora mesmo e garanta a sua vaga.
+```
+
+O prompt original foi melhorado com instruções específicas sobre estrutura, tom e quantidade de linhas. Isso ajuda o modelo a produzir uma resposta mais previsível e apropriada para o formato esperado pela aplicação.
