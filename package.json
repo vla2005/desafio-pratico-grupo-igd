@@ -1,0 +1,16 @@
+{
+  "name": "mini-gerador-roteiros",
+  "version": "1.0.0",
+  "description": "Mini gerador de roteiros de vendas com Node.js e Express.",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

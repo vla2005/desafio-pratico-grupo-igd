@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerador de Roteiro de Vendas</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>Gerador de roteiro de vendas</h1>
+
+    <form id="formulario-roteiro" novalidate>
+      <div class="campo">
+        <label for="nomeOferta">Nome da oferta</label>
+        <input id="nomeOferta" name="nomeOferta" type="text" placeholder="Ex.: Curso de Java" required>
+      </div>
+
+      <div class="campo">
+        <label for="resultado">Resultado prometido</label>
+        <input id="resultado" name="resultado" type="text" placeholder="Ex.: Aprender a criar APIs profissionais" required>
+      </div>
+
+      <div class="campo">
+        <label for="publico">Público</label>
+        <input id="publico" name="publico" type="text" placeholder="Ex.: Desenvolvedores iniciantes" required>
+      </div>
+
+      <button id="botao-enviar" type="submit">
+        <span>Gerar roteiro</span>
+      </button>
+    </form>
+
+    <div id="mensagem" class="mensagem" role="status" aria-live="polite" hidden></div>
+
+    <section id="resultado-roteiro" class="resultado" aria-labelledby="titulo-resultado" hidden>
+      <h2 id="titulo-resultado">Roteiro gerado</h2>
+      <p id="texto-roteiro"></p>
+    </section>
+  </main>
+</body>
+</html>
