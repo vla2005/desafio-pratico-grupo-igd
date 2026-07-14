@@ -133,3 +133,25 @@ Resposta de validação (`400 Bad Request`):
 ## Decisões principais
 
 A aplicação usa uma separação direta entre rota, controller e service. A regra de validação e geração fica isolada e exportada no service, o que permite testá-la sem iniciar o servidor. Não há banco de dados, autenticação ou integração com IA: o roteiro é gerado de forma determinística em memória. O Express também serve os arquivos estáticos da pasta `public` e escuta em `0.0.0.0`, garantindo compatibilidade com Docker.
+
+
+## Parte B — Correção do bug
+
+O erro ocorria porque toLowerCase() era executado diretamente em dados.publico, que poderia ser undefined. A correção valida o tipo do campo antes de manipular a string e usa um valor padrão quando ele não é enviado.
+
+Correção:
+```javascript
+function gerarRoteiro(dados = {}) {
+  const publico = typeof dados.publico === "string"
+    ? dados.publico.trim().toLowerCase()
+    : "";
+
+  const linhas = [
+    "Oferta: " + (dados.nomeOferta || ""),
+    "Para quem é: " + publico,
+    "O que você promete: " + (dados.resultado || ""),
+  ];
+
+  return linhas.join("\n");
+}
+```
